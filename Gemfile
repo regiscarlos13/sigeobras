@@ -21,13 +21,15 @@ gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
+  gem 'wkhtmltopdf-binary'
 end
+
+gem 'wkhtmltopdf-heroku', group: :production
 
 group :development do
   gem 'web-console'

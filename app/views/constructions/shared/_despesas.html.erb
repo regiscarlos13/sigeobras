@@ -1,0 +1,22 @@
+<%= line_chart @construction.expenses, min: 1000, max: 5000 %>
+<hr>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Conta</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Tipo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @construction.expenses.each do |f| %>
+      <tr>
+        <td><%= l f.data %></td>
+        <td><%= f.account_name %></td>
+        <td><%= number_to_currency(f.valor) %></td>
+        <td><%= f.account_tipe %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

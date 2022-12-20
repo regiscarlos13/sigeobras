@@ -1,0 +1,14 @@
+<% @card_title = @expenses.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_expense_path) %>
+<div class="table-responsive">
+  <%= table_for(@expenses) do %>
+    <% field_table(@expenses.model.human_attribute_name('valor'))  { |f| number_to_currency(f.valor) } %>
+    <% field_table(@expenses.model.human_attribute_name('data'))  { |f| l f.data } %>
+    <% field_table(@expenses.model.human_attribute_name('construction'))  { |f| f.construction.name } %>
+    <% field_table(@expenses.model.human_attribute_name('account'))  { |f| f.account.name } %>
+    <% field_table(@expenses.model.human_attribute_name('tipo'))  { |f| f.account.tipe } %>
+    <% field_table(@expenses.model.human_attribute_name('custo'))  { |f| f.account.cost } %>
+    <% field_table(@expenses.model.human_attribute_name('category'))  { |f| f.category.name } %>
+    <% btn_form %>
+  <% end %>
+</div>

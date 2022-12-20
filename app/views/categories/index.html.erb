@@ -1,0 +1,8 @@
+<% @card_title = @categories.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_category_path) %>
+<div class="table-responsive">
+  <%= table_for(@categories) do %>
+    <% field_table(@categories.model.human_attribute_name('description'))  { |f| f.description } %>
+    <% btn_form %>
+  <% end %>
+</div>

@@ -1,0 +1,18 @@
+pt-BR:
+  activerecord:
+    models:
+      construction:
+        one: Obra
+        other: Obras
+    attributes:
+      construction:
+        description: Descrição
+        company: Empresa
+        dt_start: Data Início
+        dt_end: Data Fim
+        valor: Valor
+        final: Finalizado?
+        category: Categoria
+        engineer: Engenheiro
+        percetage: Porcetagem
+        

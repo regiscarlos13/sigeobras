@@ -1,0 +1,9 @@
+<% @card_title = @engineers.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_engineer_path) %>
+<div class="table-responsive">
+  <%= table_for(@engineers) do %>
+    <% field_table(@engineers.model.human_attribute_name('cpf'))  { |f| f.cpf } %>
+    <% field_table(@engineers.model.human_attribute_name('name'))  { |f| f.name } %>
+    <% btn_form %>
+  <% end %>
+</div>

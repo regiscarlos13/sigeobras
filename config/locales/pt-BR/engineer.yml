@@ -1,0 +1,12 @@
+pt-BR:
+  activerecord:
+    models:
+      engineer:
+        one: Engenheiro
+        other: Engenheiros
+    attributes:
+      engineer:
+        name: Nome
+        cpf: CPF
+        company: Empresa
+        

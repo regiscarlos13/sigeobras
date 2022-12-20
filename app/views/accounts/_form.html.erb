@@ -1,0 +1,11 @@
+<div class="p-5 ">
+  <%= simple_form_for(@account, 
+  wrapper: :horizontal_form) do |f| %>
+    <%= show_message(@account) %>
+    <%= f.input :description %>
+    <%= f.input :tipe, as: :radio_buttons, collection: Account.tipes.keys, wrapper: :horizontal_collection_inline %>
+    <%= f.input :cost, as: :radio_buttons, collection: Account.costs.keys, wrapper: :horizontal_collection_inline %>
+    <hr>
+    <%= btn_save %>  <%  @btn_new = btn_cancel(accounts_path) %>
+  <% end %>
+</div>

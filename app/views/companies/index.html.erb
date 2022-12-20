@@ -1,0 +1,10 @@
+<% @card_title = @companies.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_company_path) %>
+<div class="table-responsive">
+  <%= table_for(@companies) do %>
+      <% field_table(@companies.model.human_attribute_name('cnpj'))  { |f| f.cnpj } %>
+      <% field_table(@companies.model.human_attribute_name('name'))  { |f| f.name } %>
+      <% field_table(@companies.model.human_attribute_name('block'))  { |f| f.block } %>
+    <% btn_form %>
+  <% end %>
+</div>

@@ -1,0 +1,16 @@
+<div class="row border mb-3" >
+  <div class="p-3  ">
+    <div  data-controller="select2">
+      <%= form_tag(report_constructions_path, method: "get") do %>
+        <b class='me-2 ms-2'> Finalizado?: </b>
+        <%= select_tag :finalizado, options_for_select([ ["Todos", ''], ["Sim", true], ["Não", false] ], params[:finalizado]), style: 'width:7%', class: 'form-control select'%>
+        <b class='me-2 ms-2'> Data Inicial: </b>
+        <%= date_field_tag :start_date, params[:start_date] %>
+        <b class='me-2 ms-2'>Data Final:</b>
+        <%= date_field_tag :end_date, params[:end_date] %>
+        <%= button_tag(type: 'submit', class: 'btn btn-primary btn-sm bi bi-search', id: 'button_banco', name: nil) do %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

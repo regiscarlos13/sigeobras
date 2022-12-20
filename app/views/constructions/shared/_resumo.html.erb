@@ -1,0 +1,22 @@
+<div class="mt-3" style="width: 20rem;">
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row"><strong>Contrato Inicial</strong></th>
+        <td class="text-info">  <%=  number_to_currency(@construction.valor) %> </td>
+      </tr>
+      <tr>
+        <th scope="row"><strong> Aditivos</strong></th>
+        <td class="text-success"> <%=  number_to_currency(@construction.total_aditivos) %>  </td>
+      </tr>
+      <tr>
+        <th scope="row"><strong> Despesas</strong></th>
+        <td class="text-danger"> <%=  number_to_currency(@construction.total_despesas) %> </td>
+      </tr>
+      <tr>
+        <th scope="row"><strong> Saldo</strong></th>
+        <td class="text-primary"> <%=  number_to_currency(@construction.saldo) %> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      additive:
+        one: Aditivo
+        other: Aditivos
+    attributes:
+      additive:
+        company: Empresa
+        valor: Valor
+        construction: Obra
+        data: Data
+        

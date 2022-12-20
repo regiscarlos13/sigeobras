@@ -1,0 +1,13 @@
+<% @card_title = @constructions.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_construction_path) %>
+<div class="table-responsive">
+  <%= table_for(@constructions) do %>
+    <% field_table(@constructions.model.human_attribute_name('description'))  { |f| link_to f.description, f } %>
+    <% field_table(@constructions.model.human_attribute_name('dt_start'))  { |f| l f.dt_start } %>
+    <% field_table(@constructions.model.human_attribute_name('dt_end'))  { |f| l f.dt_end } %>
+    <% field_table(@constructions.model.human_attribute_name('valor'))  { |f| number_to_currency(f.valor) } %>
+    <% field_table(@constructions.model.human_attribute_name('final'))  { |f| t f.final } %>
+    <% field_table(@constructions.model.human_attribute_name('percetage'))  { |f|  "#{f.percetage} %" } %>
+    <% btn_form %>
+  <% end %>
+</div>

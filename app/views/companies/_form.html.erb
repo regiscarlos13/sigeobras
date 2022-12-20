@@ -1,0 +1,15 @@
+<div class="p-5">
+  <%= simple_form_for(@company, 
+   wrapper: :horizontal_form, 
+    wrapper_mappings: {
+    radio_buttons: :horizontal_collection,
+  }
+   ) do |f| %>
+    <%= show_message(@company) %>
+    <%= f.input :cnpj %>
+    <%= f.input :name %>
+    <%= f.input :block, as: :radio_buttons %>
+    <hr>
+    <%= btn_save %>  <%  @btn_new = btn_cancel(companies_path) %>
+  <% end %>
+</div>

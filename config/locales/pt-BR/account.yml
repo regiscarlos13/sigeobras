@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      account:
+        one: Conta
+        other: Contas
+    attributes:
+      account:
+        description: Descrição
+        company: Empresa
+        tipe: Tipo
+        cost: Custo
+        

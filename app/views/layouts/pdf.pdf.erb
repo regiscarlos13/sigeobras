@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-br" >
+  <head>
+    <meta charset="UTF-8">
+    <%= wicked_pdf_stylesheet_link_tag "application.css" %>
+    <script>
+      function number_pages() {
+        var vars={};
+        var x=document.location.search.substring(1).split('&');
+        for(var i in x) {var z=x[i].split('=',2);vars[z[0]] = decodeURIComponent(z[1]);}
+        var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+        for(var i in x) {
+          var y = document.getElementsByClassName(x[i]);
+          for(var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+        }
+      }
+    </script>
+    <style>
+      body {
+          background-color:white;
+      }
+        .page-break { display:block; clear:both; page-break-after:always; }
+
+
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid black;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+  </head>
+  <body onload="number_pages()">
+    <%= yield %>
+  </body>
+</html>

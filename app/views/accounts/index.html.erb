@@ -1,0 +1,10 @@
+<% @card_title = @accounts.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_account_path) %>
+<div class="table-responsive">
+  <%= table_for(@accounts) do %>
+    <% field_table(@accounts.model.human_attribute_name('description'))  { |f| f.description } %>
+    <% field_table(@accounts.model.human_attribute_name('tipe'))  { |f| f.tipe } %>
+    <% field_table(@accounts.model.human_attribute_name('cost'))  { |f| f.cost } %>
+    <% btn_form %>
+  <% end %>
+</div>

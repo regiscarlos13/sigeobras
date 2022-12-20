@@ -1,0 +1,11 @@
+<div class="p-5">
+  <%%= simple_form_for(@<%= singular_table_name %>, 
+  wrapper: :horizontal_form) do |f| %>
+  <%%= show_message(@<%= singular_table_name %>) %>
+  <%- attributes.each do |attribute| -%>
+    <%%= f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %> %>
+  <%- end -%>
+  <hr>
+  <%%= btn_save %>  <%%  @btn_new = btn_cancel(<%= plural_table_name %>_path) %>
+  <%% end %>
+</div>

@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Servidor
+        other: Servidores
+    attributes:
+      user:
+        name: Nome
+        cpf: CPF
+        hora: Qtd Batidas
+        role: Perfil
+        

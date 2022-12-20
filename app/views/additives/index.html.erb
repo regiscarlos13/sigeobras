@@ -1,0 +1,10 @@
+<% @card_title = @additives.model_name.human(count: 2) %>
+<% @btn_new = btn_new(new_additive_path) %>
+<div class="table-responsive">
+  <%= table_for(@additives) do %>
+    <% field_table(@additives.model.human_attribute_name('data'))  { |f| l f.data } %>
+    <% field_table(@additives.model.human_attribute_name('valor'))  { |f| number_to_currency(f.valor) } %>
+    <% field_table(@additives.model.human_attribute_name('construction'))  { |f| f.construction.name } %>
+    <% btn_form %>
+  <% end %>
+</div>

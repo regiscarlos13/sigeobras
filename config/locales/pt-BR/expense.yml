@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      expense:
+        one: Despesa
+        other: Despesas
+    attributes:
+      expense:
+        company: Empresa
+        valor: Valor
+        category: Categoria
+        construction: Obra
+        account: Conta
+        

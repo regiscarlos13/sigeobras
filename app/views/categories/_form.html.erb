@@ -1,0 +1,9 @@
+<div class="p-5">
+  <%= simple_form_for(@category, 
+  wrapper: :horizontal_form) do |f| %>
+    <%= show_message(@category) %>
+    <%= f.input :description %>
+    <hr>
+    <%= btn_save %>  <%  @btn_new = btn_cancel(categories_path) %>
+  <% end %>
+</div>

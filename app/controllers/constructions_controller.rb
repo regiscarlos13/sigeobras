@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class ConstructionsController < ApplicationController
-  before_action :set_construction, only: %i[show edit update destroy]
+  include ChartGraph
+
+  before_action :set_construction, only: %i[show edit update destroy chart_data_set]
 
   def index
     @constructions = current_user.company.constructions
@@ -13,7 +15,32 @@ class ConstructionsController < ApplicationController
 
   def edit; end
 
-  def show; end
+  def show
+    # byebug
+    description = ['Valor Inicial', 'Valor Final']
+    chart_data(description)
+  end
+
+  def chart_data_set
+    valor_inicial = @construction.valor
+    valor_aditivos = @construction.total_aditivos + valor_inicial
+    valor_despesas = @construction.total_despesas
+    valor_saldo = @construction.saldo
+
+    [{
+      label: 'Receitas',
+      backgroundColor: 'transparent',
+      borderColor: '#3B82F6',
+      data: [valor_inicial, valor_aditivos]
+    },
+
+     {
+       label: 'Despesas',
+       backgroundColor: 'transparent',
+       borderColor: 'red',
+       data: [0, valor_despesas]
+     }]
+  end
 
   def create
     @construction = Construction.new(construction_params)

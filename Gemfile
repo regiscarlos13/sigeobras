@@ -29,7 +29,7 @@ group :development, :test do
   gem 'wkhtmltopdf-binary'
 end
 
-gem 'wkhtmltopdf-heroku', group: :production
+gem 'wkhtmltopdf-heroku', '2.12.6.1.pre.jammy', group: :production
 
 group :development do
   gem 'web-console'

@@ -6,4 +6,8 @@ const application = Application.start()
 application.debug = false
 window.Stimulus = application
 
+import ContentLoader from 'stimulus-content-loader'
+application.register('content-loader', ContentLoader)
+
+
 export { application }

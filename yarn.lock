@@ -329,6 +329,11 @@ stimulus-chartjs@^4.0.0:
   dependencies:
     chart.js "^3.7.0"
 
+stimulus-content-loader@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/stimulus-content-loader/-/stimulus-content-loader-4.0.1.tgz#8e57d519a28c9d74e082633037c0de67fc8640db"
+  integrity sha512-XztvmKLLbOQCgQLXuOagnU3/EA559xpXr2moUWwi2XP5LfDpM6EOFput5w4QVc07TLYCGrKsKe34fgwWSSEKqA==
+
 sweetalert2@^11.6.7:
   version "11.6.7"
   resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-11.6.7.tgz#35355ba3a50b788de4a413c306ff2ecaa92c184f"

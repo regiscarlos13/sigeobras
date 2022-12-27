@@ -1,5 +1,5 @@
 <section class="vh-100" style="background-color: #9A616D;">
-  <div class="container py-5 h-100">
+  <div class="container py-5 h-100" >
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col col-xl-10">
         <div class="card" style="border-radius: 1rem;">
@@ -25,7 +25,13 @@
                     <%= f.input :password,
                                  required: false,
                                  label: false,
-                                 input_html: { autocomplete: "current-password", placeholder: "Senha", class: "form-control form-control-lg rounded-pill" } %>
+                                 input_html: { 
+                                  autocomplete: "current-password", 
+                                  placeholder: "Senha", 
+                                  class: "form-control form-control-lg rounded-pill"
+                                  }
+                                 
+                                 %>
                   </div>
                   <div class="pt-1 mb-4">
                     <%= f.submit 'Entrar', class: "btn btn-primary btn-lg btn-block rounded-pill" %>

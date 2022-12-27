@@ -13,6 +13,7 @@
         "sass": "^1.56.0",
         "select2": "^4.1.0-rc.0",
         "stimulus-chartjs": "^4.0.0",
+        "stimulus-content-loader": "^4.0.1",
         "sweetalert2": "^11.6.7"
     },
     "scripts": {

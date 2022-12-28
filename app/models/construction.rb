@@ -13,7 +13,7 @@ class Construction < ApplicationRecord
   scope :final_all, -> { all }
 
   def name
-    'description'
+    description
   end
 
   def saldo

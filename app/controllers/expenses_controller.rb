@@ -20,7 +20,7 @@ class ExpensesController < ApplicationController
 
     respond_to do |format|
       if @expense.save
-        format.html { redirect_to expenses_path, notice: 'Despesa criada com sucesso.' }
+        format.html { redirect_to new_expense_path, notice: 'Despesa criada com sucesso.' }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @expense.errors, status: :unprocessable_entity }

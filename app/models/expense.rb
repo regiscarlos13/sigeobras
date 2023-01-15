@@ -2,7 +2,8 @@
 
 class Expense < ApplicationRecord
   belongs_to :company
-  belongs_to :construction, -> { where(final: false, company_id: Current.user.company.id).order(description: :asc) }
+  # belongs_to :construction, -> { where(final: false, company_id: Current.user.company.id).order(description: :asc) }
+  belongs_to :construction
   belongs_to :account, -> { where(company_id: Current.user.company.id).order(description: :asc) }
   belongs_to :category, -> { where(company_id: Current.user.company.id).order(description: :asc) }
 

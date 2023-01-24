@@ -9,6 +9,8 @@ class Expense < ApplicationRecord
 
   validates_presence_of :valor, :data
 
+  has_one_attached :recibo
+
   delegate :name, to: :account, prefix: :account
   delegate :tipe, to: :account, prefix: :account
 end

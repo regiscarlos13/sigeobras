@@ -9,6 +9,7 @@
     <% field_table(@expenses.model.human_attribute_name('tipo'))  { |f| f.account.tipe } %>
     <% field_table(@expenses.model.human_attribute_name('custo'))  { |f| f.account.cost } %>
     <% field_table(@expenses.model.human_attribute_name('category'))  { |f| f.category.name } %>
+    <% field_table('Recibo')  { |f| f.recibo.present? ? (link_to 'Visualizar',  rails_blob_path( f.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : '-'} %>
     <% btn_form %>
   <% end %>
 </div>

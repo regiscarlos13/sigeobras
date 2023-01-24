@@ -56,6 +56,6 @@ class ExpensesController < ApplicationController
 
   def expense_params
     params.require(:expense).permit(:valor, :data, :construction_id, :account_id,
-                                    :category_id).merge(company: current_user.company)
+                                    :category_id, :recibo).merge(company: current_user.company)
   end
 end

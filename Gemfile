@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.1.2'
+ruby '3.2.0'
 
 gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
@@ -26,6 +26,7 @@ group :development, :test do
   gem 'byebug'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rubocop', require: false
+  gem 'solargraph'
   gem 'wkhtmltopdf-binary'
 end
 

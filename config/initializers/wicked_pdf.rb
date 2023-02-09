@@ -1,8 +1,12 @@
 # frozen_string_literal: true
 
-WickedPdf.config = { layout: 'pdf' }
-if Rails.env.development?
-  WickedPdf.config.merge!({
-                            exe_path: '/usr/local/bin/wkhtmltopdf'
-                          })
-end
+WickedPdf.config ||= {}
+WickedPdf.config.merge!({
+                          layout: 'pdf',
+                          exe_path: 'lib/wkhtmltopdf'
+                        })
+
+# if Rails.env.development?
+#   WickedPdf.config.merge!({
+#                           })
+# end

@@ -1,0 +1,46 @@
+
+  <table class="a">
+      <tr>
+        <th ><strong>Contrato Inicial</strong></th>
+        <td >  <%=  number_to_currency(@construction.valor) %> </td>
+      </tr>
+      <tr>
+        <th ><strong> Aditivos</strong></th>
+        <td > <%=  number_to_currency(@construction.total_aditivos) %>  </td>
+      </tr>
+      <tr>
+        <th ><strong> Despesas</strong></th>
+        <td > <%=  number_to_currency(@construction.total_despesas) %> </td>
+      </tr>
+      <tr>
+        <th ><strong> Saldo</strong></th>
+        <td> <%=  number_to_currency(@construction.saldo) %> </td>
+      </tr>
+  </table>
+
+
+
+<div class="page-break"></div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Data</th>
+      <th scope="col">Conta</th>
+      <th scope="col">Valor</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Recibo</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @construction.expenses.each do |f| %>
+      <tr>
+        <td><%= l f.data %></td>
+        <td><%= f.account_name %></td>
+        <td><%= number_to_currency(f.valor) %></td>
+        <td><%= f.account_tipe %></td>
+        <td><%= f.recibo.present? ? (link_to 'Visualizar',  rails_blob_path( f.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : '-' %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

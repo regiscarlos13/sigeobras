@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8">
     <%= wicked_pdf_stylesheet_link_tag "application.css" %>
+    <%= wicked_pdf_javascript_include_tag "application" %>
+
     <script>
       function number_pages() {
         var vars={};
@@ -15,6 +17,7 @@
         }
       }
     </script>
+    
     <style>
       body {
           background-color:white;

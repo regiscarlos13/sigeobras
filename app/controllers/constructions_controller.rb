@@ -16,9 +16,9 @@ class ConstructionsController < ApplicationController
   def edit; end
 
   def show
-    # byebug
     description = ['Valor Inicial', 'Valor Final']
     chart_data(description)
+    format_pdf('constructions/show', 'constructions')
   end
 
   def chart_data_set

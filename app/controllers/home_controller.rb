@@ -19,6 +19,7 @@ class HomeController < ApplicationController
     @total_despesas_finalizado = sum_despesas(true)
     @lucro_finalizado = @total_receitas_finalizado - @total_despesas_finalizado
     @count_obras_finalizado = count_obras(true).count
+    @lmr = ((@lucro_finalizado * 100) / @total_receitas_finalizado).round(2)
   end
 
   def count_obras(field)

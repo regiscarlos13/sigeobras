@@ -25,7 +25,7 @@
           <div class="col mr-2">
             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
               Despesas</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=  number_to_currency(@total_despesas_finalizado) %></div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=  number_to_currency(@total_despesas_finalizado) %> </div>
           </div>
           <div class="col-auto">
             <%= image_tag 'despesas.png', class: 'image_icon' %>
@@ -40,10 +40,13 @@
       <div class="card-body">
         <div class="row no-gutters align-items-center">
           <div class="col mr-2">
-            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-              Saldo</div>
-            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=  number_to_currency(@lucro_finalizado) %></div>
+            <div class="text-xs font-weight-bold text-success text-uppercase mb-1"> Saldo / Lucro Médio</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800"><%=  number_to_currency(@lucro_finalizado) %> <br> 
+            <%=  @lmr %>%
+          
+            </div>
           </div>
+          
           <div class="col-auto">
             <i class="fas fa-comments fa-2x text-gray-300"></i>
             <%= image_tag 'lucro.png', class: 'image_icon' %>

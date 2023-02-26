@@ -23,6 +23,30 @@
         <td> <%=  number_to_currency(@construction.saldo) %> </td>
       </tr>
   </table>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
+<br>
+
+<table class="table">
+    <% count = 0 %>
+    <% @construction.expenses.group_by(&:account_id).map {|account, expenses| [account, expenses.pluck(:valor).sum]}
+                                                    .sort_by {|x, y| -y}
+                                                    .each do |f| 
+                                                     %>
+
+                                                         <tr>
+        <th><%= count += 1 %></th>                                                         
+        <th ><strong><%= Account.find(f[0]).name %></strong></th>
+        <td >  <%=  number_to_currency(f[1]) %> </td>
+      </tr>
+    <% end %>
+  
+  
+  </table>
 
 
 

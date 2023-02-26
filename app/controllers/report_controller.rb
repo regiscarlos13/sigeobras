@@ -5,6 +5,7 @@ class ReportController < ApplicationController
     @constructions = finalizado(Construction).where('dt_start >= :start AND dt_end <= :end',
                                                     start: start_date,
                                                     end: end_date)
+                                             .order(dt_start: :desc)
     format_pdf('report/pdf/constructions', 'constructions')
   end
 

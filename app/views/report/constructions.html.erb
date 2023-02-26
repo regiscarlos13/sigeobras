@@ -1,5 +1,7 @@
 <% @card_title = 'Relatórios de Construção' %>
-<% @btn_report = btn_print(report_constructions_path(format: :pdf, finalizado: params[:finalizado])) %>
+<% @btn_report = btn_print(report_constructions_path(format: :pdf, finalizado: params[:finalizado], 
+                                                      start_date: params[:start_date], 
+                                                      end_date: params[:end_date])) %>
 <hr>
 <%= render partial: 'report/filter' %>
 <hr>

@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
       format.pdf do
         render template: template1,
                pdf: pdf1,
-               header: { html: { template: 'report/shared/header' } },
+               header: { spacing: 10, html: { template: 'report/shared/header' } },
                footer: { html: { template: 'report/shared/footer' } },
                margin: { top: 40, bottom: 25, left: 15, right: 15 }
       end

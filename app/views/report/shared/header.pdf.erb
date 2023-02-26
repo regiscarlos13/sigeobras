@@ -1,16 +1,10 @@
 <style>
-  .print_logo {
-    width: 500px;
-    height: 90px;
-  }
-    @media print {
-       tr:nth-child(even) td {
-           background-color: red !important;
-            -webkit-print-color-adjust: exact;
-       }
-    }
+.logo {
+  width: 35%;
+
+}
+
 </style>
-<div class='border-bottom border-2 text-center'>
-  <strong><h1>Resumo</h1></strong> 
+<div class='border-top border-2 text-center'>
+   <%= wicked_pdf_image_tag asset_url('logo.jpg'), class: 'logo' %>
 </div>
-<br>

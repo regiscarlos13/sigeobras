@@ -1,0 +1,35 @@
+<% @card_title = "Registro de " + @user.model_name.human(count: 1) %>
+<p>
+  <strong><%= translate 'activerecord.attributes.user.name' %>:</strong>
+  <%= @user.name %>
+</p>
+
+<% if @user.admin?%>
+<h1>usuário administrador</h1>
+       <%= btn_back(users_path) %>
+
+<%else %>
+
+
+  <%= simple_form_for([@user, @user.user_constructions.build])do |f| %>
+          <%= f.association :construction, prompt: false, label: 'Construção' %>
+    <hr>
+    <%= btn_save %> 
+  <% end %>
+
+  <hr>
+
+<div class="table-responsive">
+  <%= table_for(@user.user_constructions) do %>
+    <% field_table('Construção') { |f| f.construction.name if f.construction.present? } %>
+    <% field_table('-') { |f| btn_delete([f.user, f]) } %>
+   
+  <% end %>
+</div>
+
+</div>
+
+<% end %>
+
+
+

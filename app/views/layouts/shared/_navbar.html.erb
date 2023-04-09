@@ -4,8 +4,10 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    
     <div class="collapse navbar-collapse" id="navbarsExample04">
       <ul class="navbar-nav me-auto mb-2 mb-md-0">
+      <% if current_user.admin? %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
           <ul class="dropdown-menu">
@@ -13,6 +15,7 @@
             <%= link_to 'Categorias', categories_path, class: 'dropdown-item' %>
             <%# <%= link_to 'Empresas', companies_path, class: 'dropdown-item' %>
             <%= link_to 'Engenheiros', engineers_path, class: 'dropdown-item' %>
+            <%= link_to 'Usuários', users_path, class: 'dropdown-item' %>
           </ul>
         </li>
         <li class="nav-item">
@@ -30,6 +33,34 @@
             <%= link_to 'Obras', report_constructions_path, class: 'dropdown-item' %>
           </ul>
         </li>
+        <%else%>
+    
+        <li class="nav-item">
+          <%= link_to 'Despesas', expenses_path, class: 'nav-link' %>
+        </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <%end%>
       </ul>
       <div class="d-flex">
         <div class="dropdown">

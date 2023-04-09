@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :accounts
   resources :engineers
-  devise_for :users
   resources :companies, expect: [:show]
   root 'home#index'
+
+  devise_for :users, skip: [:registrations]
+  resources :users  do
+    resources :user_constructions
+  end
 end

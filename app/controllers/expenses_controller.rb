@@ -2,15 +2,21 @@
 
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show edit update destroy]
+  before_action :set_construction
 
   def index
+    if current_user.admin?
     @expenses = current_user.company.expenses.joins(:construction).where(constructions: { final: false })
+  else
+    @expenses = current_user.company.expenses.joins(:construction).where(constructions: { final: false, id: current_user.user_constructions.map(&:construction_id) })
+    end
   end
 
   def show; end
 
   def new
     @expense = Expense.new
+    
   end
 
   def edit; end
@@ -49,6 +55,10 @@ class ExpensesController < ApplicationController
   end
 
   private
+
+  def set_construction
+    @constructions =  current_user.admin? ? Construction.where(final: false) : Construction.where(id: current_user.user_constructions.map(&:construction_id))
+  end
 
   def set_expense
     @expense = Expense.find(params[:id])

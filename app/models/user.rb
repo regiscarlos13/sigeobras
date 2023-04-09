@@ -7,6 +7,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :timeoutable
 
   belongs_to :company
+  has_many   :user_constructions, dependent: :destroy
 
   validates_presence_of :name
+
+  enum role: [:admin, :user]
 end

@@ -8,8 +8,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-c = Company.create!(name: 'Empresa de Teste', cnpj: '01946712329', block: false)
-user = User.create(email: 'usuarioteste@gmail.com', password: 'qwe123', company: c, name: 'Usuário de Teste')
+c = Company.create!(name: 'Empresa de Teste', cnpj: '01946712328', block: false)
+user = User.create(email: 'regiscarlos13@gmail.com', password: '123456', company: c, name: 'Usuário de Teste')
 
 num = 0
 1..20.times do |_f|

@@ -10,8 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_110127) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_09_160801) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_stat_statements"
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
@@ -121,6 +122,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_110127) do
     t.index ["construction_id"], name: "index_expenses_on_construction_id"
   end
 
+  create_table "user_constructions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "construction_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["construction_id"], name: "index_user_constructions_on_construction_id"
+    t.index ["user_id"], name: "index_user_constructions_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -151,5 +161,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_110127) do
   add_foreign_key "expenses", "categories"
   add_foreign_key "expenses", "companies"
   add_foreign_key "expenses", "constructions"
+  add_foreign_key "user_constructions", "constructions"
+  add_foreign_key "user_constructions", "users"
   add_foreign_key "users", "companies"
 end

@@ -1,0 +1,9 @@
+<% @card_title = "Usuários" %>
+<% @btn_new = btn_new(new_user_path) %>
+<div class="table-responsive">
+  <%= table_for(@users) do %>
+    <% field_table(@users.model.human_attribute_name('name'))  { |f| link_to f.name, f } %>
+    <% field_table(@users.model.human_attribute_name('email'))  { |f| f.email } %>
+    <% btn_form %>
+  <% end %>
+</div>

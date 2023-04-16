@@ -16,7 +16,7 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= f.association :construction, collection: Construction.where(final: false), prompt: false %>
+        <%= f.association :construction, collection: @constructions, prompt: false %>
       </div>
       <div class="col">
         <%= f.association :category, prompt: false %>

@@ -25,7 +25,26 @@ test:
   password: postgres
   database: sigeobras_test
 production:
-  <<: *default
-  database: sigeobras_production
-  username: sigeobras
-  password: <%= ENV["SIGEOBRAS_DATABASE_PASSWORD"] %>
+  # <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: ec2-18-214-134-226.compute-1.amazonaws.com
+  database: d9qffqb8j7rcos
+  username: whdtbvnrslntjn
+  password: 5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5
+
+# Host
+#     ec2-18-214-134-226.compute-1.amazonaws.com
+# Database
+#     d9qffqb8j7rcos
+# User
+#     whdtbvnrslntjn
+# Port
+#     5432
+# Password
+#     5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5
+# URI
+#     postgres://whdtbvnrslntjn:5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5@ec2-18-214-134-226.compute-1.amazonaws.com:5432/d9qffqb8j7rcos
+# Heroku CLI
+#     heroku pg:psql postgresql-round-80647 --app sigeobras

@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.0'
+ruby '3.2.1'
 
 gem 'aws-sdk-s3', require: false
 gem 'bootsnap', require: false
@@ -30,7 +30,7 @@ group :development, :test do
   gem 'wkhtmltopdf-binary'
 end
 
-  gem 'wkhtmltopdf-heroku', '2.12.6.0', group: :production
+gem 'wkhtmltopdf-heroku', '2.12.6.0', group: :production
 
 group :development do
   gem 'web-console'

@@ -13,4 +13,9 @@ class Expense < ApplicationRecord
 
   delegate :name, to: :account, prefix: :account
   delegate :tipe, to: :account, prefix: :account
+
+
+  def construction_name
+    construction.name
+  end
 end

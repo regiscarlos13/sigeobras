@@ -3,20 +3,21 @@
 class ExpensesController < ApplicationController
   before_action :set_expense, only: %i[show edit update destroy]
   before_action :set_construction
+  after_action  :default_values, only: %i[create update]
+  before_action :select_construncion, only: %i[new edit]
 
   def index
-    if current_user.admin?
-    @expenses = current_user.company.expenses.joins(:construction).where(constructions: { final: false })
-  else
-    @expenses = current_user.company.expenses.joins(:construction).where(constructions: { final: false, id: current_user.user_constructions.map(&:construction_id) })
-    end
+    @expenses = if current_user.admin?
+                  current_user.company.expenses.includes(:construction, :account, :category).where(constructions: { final: false })
+                else
+                  current_user.company.expenses.includes(:construction, :account, :category).where(constructions: { final: false, id: current_user.user_constructions.map(&:construction_id) })
+                end
   end
 
   def show; end
 
   def new
     @expense = Expense.new
-    
   end
 
   def edit; end
@@ -56,8 +57,18 @@ class ExpensesController < ApplicationController
 
   private
 
+  def select_construncion
+    @selected_construction =  @expense.nil? ? cookies[:construction] : @expense.construction_id 
+    @selected_category     =  @expense.nil? ? cookies[:category] : @expense.category_id 
+  end
+
+  def default_values
+    cookies[:construction] =  @expense.construction_id
+    cookies[:category]     =  @expense.category_id
+  end
+
   def set_construction
-    @constructions =  current_user.admin? ? Construction.where(final: false) : Construction.where(id: current_user.user_constructions.map(&:construction_id))
+    @constructions = current_user.admin? ? Construction.where(final: false) : Construction.where(id: current_user.user_constructions.map(&:construction_id))
   end
 
   def set_expense

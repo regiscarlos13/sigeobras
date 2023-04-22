@@ -16,10 +16,10 @@
     </div>
     <div class="row">
       <div class="col">
-        <%= f.association :construction, collection: @constructions, prompt: false %>
+        <%= f.association :construction, collection: @constructions, selected: @selected_construction, prompt: false %>
       </div>
       <div class="col">
-        <%= f.association :category, prompt: false %>
+        <%= f.association :category, selected:  @selected_category, prompt: false %>
       </div>
     </div>
     <hr>

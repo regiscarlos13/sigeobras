@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   devise_for :users, skip: [:registrations]
-  resources :users  do
+  resources :users do
     resources :user_constructions
   end
 end

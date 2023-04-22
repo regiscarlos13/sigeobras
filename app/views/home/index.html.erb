@@ -1,4 +1,6 @@
 <% @card_title = 'Bem Vindo' %>
+<% if current_user.admin? %>
+
 <%= render 'home/shared/andamento' %>
 <%= render 'home/shared/finalizado' %>
 <div class="row">
@@ -20,3 +22,7 @@
     </div>
   </div>
 </div>
+
+<% else %>
+   <%= image_tag('logo.jpg', class: 'img-fluid') %>
+<% end %>

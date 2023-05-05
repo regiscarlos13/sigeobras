@@ -25,6 +25,9 @@
     <hr>
     <%= f.file_field :recibo %>
     <hr>
+    <%= @expense.recibo.present? ? (link_to 'Download Recibo',  rails_blob_path( @expense.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : 'Não tem anexo'  %>
+    <hr>
+    
     <%= btn_save %>  <%  @btn_new = btn_cancel(expenses_path) %>
   <% end %>
 </div>

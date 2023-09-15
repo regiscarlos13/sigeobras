@@ -9,7 +9,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 c = Company.create!(name: 'Empresa de Teste', cnpj: '01946712328', block: false)
-user = User.create(email: 'regiscarlos13@gmail.com', password: '123456', company: c, name: 'Usuário de Teste')
+user = User.create(email: 'regiscarlos13@gmail.com', password: 'r3g1s13', company: c, name: 'Usuário de Teste')
 
 num = 0
 1..20.times do |_f|

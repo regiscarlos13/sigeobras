@@ -9,14 +9,16 @@
     </tr>
   </thead>
   <tbody>
-    <% @construction.expenses.each do |f| %>
-      <tr>
-        <td><%= l f.data %></td>
-        <td><%= f.account_name %></td>
-        <td><%= number_to_currency(f.valor) %></td>
-        <td><%= f.account_tipe %></td>
-        <td><%= f.recibo.present? ? (link_to 'Visualizar',  rails_blob_path( f.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : '-' %>
+    <% @construction.expenses.includes(:construction, :account, :category).with_attached_recibo.each do |f| %>
+      <% cache f do %>
+        <tr>
+          <td><%= l f.data %></td>
+          <td><%= f.account_name %></td>
+          <td><%= number_to_currency(f.valor) %></td>
+          <td><%= f.account_tipe %></td>
+          <td><%= f.recibo.present? ? (link_to 'Visualizar',  rails_blob_path( f.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : '-' %>
         </tr>
       <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>

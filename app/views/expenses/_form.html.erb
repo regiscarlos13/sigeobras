@@ -10,7 +10,11 @@
           <%= f.input :valor %>
         </div>
         <div class="col">
-          <%= f.input :data, as: :string,  input_html: {type: 'date'}%>
+          <% if action_name.eql?('edit') %>
+            <%= f.input :data, as: :string,  input_html: {type: 'date'} %>
+          <% else %>
+            <%= f.input :data, as: :string,  input_html: {type: 'date', value: Time.now.strftime("%F")} %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -27,7 +31,6 @@
     <hr>
     <%= @expense.recibo.present? ? (link_to 'Download Recibo',  rails_blob_path( @expense.recibo), class: "btn btn-outline-primary btn-sm", target: "_blank") : 'Não tem anexo'  %>
     <hr>
-    
     <%= btn_save %>  <%  @btn_new = btn_cancel(expenses_path) %>
   <% end %>
 </div>

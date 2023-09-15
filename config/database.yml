@@ -2,49 +2,29 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: postgres
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> %>
+  username: <%= ENV.fetch('DB_NAME') { Rails.application.credentials.dig(:development, :username)} %>
+  password: <%= ENV.fetch('DB_PASSWORD') { Rails.application.credentials.dig(:development, :password)} %>
+  host:     <%= ENV.fetch('DB_HOST') { Rails.application.credentials.dig(:development, :host)} %>
   port: 5432
-  host: localhost
 
 
 development:
   <<: *default
-  host: localhost
-  port: 5432
-  username: postgres
-  password: postgres
   database: sigeobras_development
 
 test:
   <<: *default
   host: localhost
-  port: 5432
-  username: postgres
-  password: postgres
   database: sigeobras_test
+
 production:
-  # <<: *default
   adapter: postgresql
   encoding: unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  host: ec2-18-214-134-226.compute-1.amazonaws.com
-  database: d9qffqb8j7rcos
-  username: whdtbvnrslntjn
-  password: 5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5
-
-# Host
-#     ec2-18-214-134-226.compute-1.amazonaws.com
-# Database
-#     d9qffqb8j7rcos
-# User
-#     whdtbvnrslntjn
-# Port
-#     5432
-# Password
-#     5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5
-# URI
-#     postgres://whdtbvnrslntjn:5738e57506cfdd079c2d963d7448fa6b73adab8e9df657cb6097bb55266b6ed5@ec2-18-214-134-226.compute-1.amazonaws.com:5432/d9qffqb8j7rcos
-# Heroku CLI
-#     heroku pg:psql postgresql-round-80647 --app sigeobras
+  port: 5432
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: <%= ENV.fetch('DB_HOST') { Rails.application.credentials.dig(:production, :database)} %>
+  username: <%= ENV.fetch('DB_NAME') { Rails.application.credentials.dig(:production, :username)} %>
+  password: <%= ENV.fetch('DB_PASSWORD') { Rails.application.credentials.dig(:production, :password)} %>
+  host:     <%= ENV.fetch('DB_HOST') { Rails.application.credentials.dig(:production, :host)} %>
+ 

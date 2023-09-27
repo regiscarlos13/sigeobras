@@ -22,13 +22,11 @@ module TableHelper # :nodoc:
         end)
       else
         records.each do |f|
-          cache f do
-            concat(content_tag(:tr, align: 'center') do
-              columns.each do |_header, value_method|
-                concat content_tag(:td, (value_method[f]))
-              end
-            end)
-          end
+          concat(content_tag(:tr, align: 'center') do
+            columns.each do |_header, value_method|
+              concat content_tag(:td, (value_method[f]))
+            end
+          end)
         end
       end
     end
